@@ -1,0 +1,803 @@
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int menu;
+	int choice;
+	string nickname;
+	int countofquestions = 8;
+	int colorid;
+	int attempts = 5;
+	int points = 0;
+
+
+	cout << "\x1b[94m[+] Добро пожаловать в IT-Викторину!!! =))))\n";
+	cout << "[1] START GAME\n";
+	cout << "[2] SETTINGS\n";
+	cout << "[3] RULES\n";
+	cout << "[4] EXIT\n";
+	cout << "Выберите раздел: "; cin >> menu;
+
+
+
+	if (menu == 4) {
+		return 0;
+	}
+
+
+
+	if (menu == 3) {
+
+		system("cls");
+		cout << "\x1b[91m[+] RULES: \n\n";
+		cout << "- Игрок получает очки за правильный ответ на вопрос\n";
+		cout << "- Игрок проходит дальше за правильный ответ\n";
+		cout << "- Игрок теряет жизнь при неправильном ответе\n\n";
+		cout << "\x1b[91m[+] Вернуться в главное меню?\n\n";
+		cout << "\x1b[94m[1]\x1b[0mДа\n"; cout << "\x1b[94m[2]\x1b[0mНет\n";
+		cout << "Введите число: "; cin >> choice;
+
+		if (choice == 1) {
+			system("cls");
+
+			cout << "\x1b[94m[+] Добро пожаловать в IT-Викторину!!! =))))\n";
+			cout << "[1] START GAME\n";
+			cout << "[2] SETTINGS\n";
+			cout << "[3] RULES\n";
+			cout << "[4] EXIT\n";
+			cout << "Выберите раздел: "; cin >> menu;
+
+		}
+		else {
+			return 0;
+		}
+	}
+
+
+	if (menu == 2) {
+		system("cls");
+
+		cout << "\x1b[93m[+] Settings: \n\n";
+		cout << "[1] Изменить никнейм\n";
+		cout << "[2] Настроить количество вопросов\n";
+		cout << "[3] Редактировать цвет интерфейса\n\n";
+		cout << "Выберите раздел: "; cin >> choice;
+		if (choice == 1) {
+			cout << "Введите желаемый никнейм: "; cin >> nickname;
+			system("cls");
+			cout << "\x1b[94m[+] Добро пожаловать в IT-Викторину!!! =))))\n";
+			cout << "[1] START GAME\n";
+			cout << "[2] SETTINGS\n";
+			cout << "[3] RULES\n";
+			cout << "[4] EXIT\n";
+			cout << "Выберите раздел: "; cin >> menu;
+
+		}
+		else if (choice == 2) {
+			cout << "Выберите желаемое количество вопросов: \n\n";
+			cout << "\x1b[94m[1]\x1b[0m8\n"; cout << "\x1b[94m[2]\x1b[0m10\n"; cout << "\x1b[94m[3]\x1b[0m12\n";
+			cout << "Введите число: "; cin >> countofquestions;
+			system("cls");
+			cout << "\x1b[94m[+] Добро пожаловать в IT-Викторину!!! =))))\n";
+			cout << "[1] START GAME\n";
+			cout << "[2] SETTINGS\n";
+			cout << "[3] RULES\n";
+			cout << "[4] EXIT\n";
+			cout << "Выберите раздел: "; cin >> menu;
+
+		}
+		else if (choice == 3) {
+			system("cls");
+			cout << "Редактирование цвета главного меню: \n\n";
+			cout << "[1] Красный\n";
+			cout << "[2] Зеленый\n";
+			cout << "[3] Желтый\n\n";
+			cout << "Выберите цвет: "; cin >> colorid;
+			if (colorid == 1) {
+				system("cls");
+				cout << "\x1b[91m[+] Добро пожаловать в IT-Викторину!!! =))))\n";
+				cout << "[1] START GAME\n";
+				cout << "[2] SETTINGS\n";
+				cout << "[3] RULES\n";
+				cout << "[4] EXIT\n";
+				cout << "Выберите раздел: "; cin >> menu;
+
+			}
+			else if (colorid == 2) {
+				system("cls");
+				cout << "\x1b[92m[+] Добро пожаловать в IT-Викторину!!! =))))\n";
+				cout << "[1] START GAME\n";
+				cout << "[2] SETTINGS\n";
+				cout << "[3] RULES\n";
+				cout << "[4] EXIT\n";
+				cout << "Выберите раздел: "; cin >> menu;
+
+			}
+			else if (colorid == 3) {
+				system("cls");
+				cout << "\x1b[93m[+] Добро пожаловать в IT-Викторину!!! =))))\n";
+				cout << "[1] START GAME\n";
+				cout << "[2] SETTINGS\n";
+				cout << "[3] RULES\n";
+				cout << "[4] EXIT\n";
+				cout << "Выберите раздел: "; cin >> menu;
+
+			}
+		}
+	}
+
+	if (menu == 1) {
+		if (countofquestions == 8) {
+
+			system("cls");
+			cout << "Введите желаемый никнейм: "; cin >> nickname;
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №1! \n";
+			cout << "Сколько битов в одном байте? \n";
+			cout << "\x1b[94m[1]\x1b[0m8\n"; cout << "\x1b[94m[2]\x1b[0m4\n";
+			cout << "\x1b[94m[3]\x1b[0m16\n"; cout << "\x1b[94m[4]\x1b[0m6\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №2! \n";
+			cout << "Как зовут преподавателя?\n";
+			cout << "\x1b[94m[1]\x1b[0mCоколов Дмитрий Алексеевич\n"; cout << "\x1b[94m[2]\x1b[0mОрлов Алексей Дмитриевич\n";
+			cout << "\x1b[94m[3]\x1b[0mАлексеев Дмитрий Гитхабыч\n"; cout << "\x1b[94m[4]\x1b[0mСиплюсплюсович Гитхаб Анатольевич\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 2) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+			Sleep(1500);
+
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №3! \n";
+			cout << "Что означает буква I в аббревиатуре IT?\n";
+			cout << "\x1b[94m[1]\x1b[0mИсламбек\n"; cout << "\x1b[94m[2]\x1b[0mИндульгенция\n";
+			cout << "\x1b[94m[3]\x1b[0mИнформационные\n"; cout << "\x1b[94m[4]\x1b[0mИбрагим\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 3) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №4! \n";
+			cout << "Что означает буква T в аббревиатуре IT?\n";
+			cout << "\x1b[94m[1]\x1b[0mТехнологии\n"; cout << "\x1b[94m[2]\x1b[0mОкно\n";
+			cout << "\x1b[94m[3]\x1b[0mАрабские Эмираты\n"; cout << "\x1b[94m[4]\x1b[0mШишка\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №5! \n";
+			cout << "Как называется предмет на котором мы сидим?\n";
+			cout << "\x1b[94m[1]\x1b[0mСистемное программирование\n"; cout << "\x1b[94m[2]\x1b[0mТут неправильно\n";
+			cout << "\x1b[94m[3]\x1b[0mЭто неправильный вариант\n"; cout << "\x1b[94m[4]\x1b[0mИ это тоже не тот ответ, первый выбирай\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №6! \n";
+			cout << "К периферийным устройствам относится?\n";
+			cout << "\x1b[94m[1]\x1b[0mМышь\n"; cout << "\x1b[94m[2]\x1b[0mПчелка\n";
+			cout << "\x1b[94m[3]\x1b[0mДом\n"; cout << "\x1b[94m[4]\x1b[0mВигонарапапам\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №6! \n";
+			cout << "Название фирмы производителей процессоров\n";
+			cout << "\x1b[94m[1]\x1b[0mIntel\n"; cout << "\x1b[94m[2]\x1b[0mMeow\n";
+			cout << "\x1b[94m[3]\x1b[0mWyw\n"; cout << "\x1b[94m[4]\x1b[0mKiki\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №7! \n";
+			cout << "Для чего нужна клавиатура?\n";
+			cout << "\x1b[94m[1]\x1b[0mВводить данные\n"; cout << "\x1b[94m[2]\x1b[0mДвигать курсором\n";
+			cout << "\x1b[94m[3]\x1b[0mВидеть изображения\n"; cout << "\x1b[94m[4]\x1b[0mЛопата\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №8! \n";
+			cout << "Для чего нужен монитор?\n";
+			cout << "\x1b[94m[1]\x1b[0mБегать\n"; cout << "\x1b[94m[2]\x1b[0mПрыгать\n";
+			cout << "\x1b[94m[3]\x1b[0mВидеть изображения\n"; cout << "\x1b[94m[4]\x1b[0mКопать\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 3) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+		}
+		if (countofquestions == 2) {
+			system("cls");
+			cout << "Введите желаемый никнейм: "; cin >> nickname;
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №1! \n";
+			cout << "Сколько битов в одном байте? \n";
+			cout << "\x1b[94m[1]\x1b[0m8\n"; cout << "\x1b[94m[2]\x1b[0m4\n";
+			cout << "\x1b[94m[3]\x1b[0m16\n"; cout << "\x1b[94m[4]\x1b[0m6\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №2! \n";
+			cout << "Как зовут преподавателя?\n";
+			cout << "\x1b[94m[1]\x1b[0mCоколов Дмитрий Алексеевич\n"; cout << "\x1b[94m[2]\x1b[0mОрлов Алексей Дмитриевич\n";
+			cout << "\x1b[94m[3]\x1b[0mАлексеев Дмитрий Гитхабыч\n"; cout << "\x1b[94m[4]\x1b[0mСиплюсплюсович Гитхаб Анатольевич\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 2) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+			Sleep(1500);
+
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №3! \n";
+			cout << "Что означает буква I в аббревиатуре IT?\n";
+			cout << "\x1b[94m[1]\x1b[0mИсламбек\n"; cout << "\x1b[94m[2]\x1b[0mИндульгенция\n";
+			cout << "\x1b[94m[3]\x1b[0mИнформационные\n"; cout << "\x1b[94m[4]\x1b[0mИбрагим\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 3) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №4! \n";
+			cout << "Что означает буква T в аббревиатуре IT?\n";
+			cout << "\x1b[94m[1]\x1b[0mТехнологии\n"; cout << "\x1b[94m[2]\x1b[0mОкно\n";
+			cout << "\x1b[94m[3]\x1b[0mАрабские Эмираты\n"; cout << "\x1b[94m[4]\x1b[0mШишка\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №5! \n";
+			cout << "Как называется предмет на котором мы сидим?\n";
+			cout << "\x1b[94m[1]\x1b[0mСистемное программирование\n"; cout << "\x1b[94m[2]\x1b[0mТут неправильно\n";
+			cout << "\x1b[94m[3]\x1b[0mЭто неправильный вариант\n"; cout << "\x1b[94m[4]\x1b[0mИ это тоже не тот ответ, первый выбирай\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №6! \n";
+			cout << "К периферийным устройствам относится?\n";
+			cout << "\x1b[94m[1]\x1b[0mМышь\n"; cout << "\x1b[94m[2]\x1b[0mПчелка\n";
+			cout << "\x1b[94m[3]\x1b[0mДом\n"; cout << "\x1b[94m[4]\x1b[0mВигонарапапам\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №6! \n";
+			cout << "Название фирмы производителей процессоров\n";
+			cout << "\x1b[94m[1]\x1b[0mIntel\n"; cout << "\x1b[94m[2]\x1b[0mMeow\n";
+			cout << "\x1b[94m[3]\x1b[0mWyw\n"; cout << "\x1b[94m[4]\x1b[0mKiki\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №7! \n";
+			cout << "Для чего нужна клавиатура?\n";
+			cout << "\x1b[94m[1]\x1b[0mВводить данные\n"; cout << "\x1b[94m[2]\x1b[0mДвигать курсором\n";
+			cout << "\x1b[94m[3]\x1b[0mВидеть изображения\n"; cout << "\x1b[94m[4]\x1b[0mЛопата\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №8! \n";
+			cout << "Для чего нужен монитор?\n";
+			cout << "\x1b[94m[1]\x1b[0mБегать\n"; cout << "\x1b[94m[2]\x1b[0mПрыгать\n";
+			cout << "\x1b[94m[3]\x1b[0mВидеть изображения\n"; cout << "\x1b[94m[4]\x1b[0mКопать\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 3) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+		}
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №9! \n";
+			cout << "В каком колледже мы учимся?\n";
+			cout << "\x1b[94m[1]\x1b[0m55\n"; cout << "\x1b[94m[2]\x1b[0m57\n";
+			cout << "\x1b[94m[3]\x1b[0m56\n"; cout << "\x1b[94m[4]\x1b[0m54\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 4) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №10! \n";
+			cout << "Какая фамилия у директора?\n";
+			cout << "\x1b[94m[1]\x1b[0mПавлюк\n"; cout << "\x1b[94m[2]\x1b[0mаррр\n";
+			cout << "\x1b[94m[3]\x1b[0mФЫВФЫВ\n"; cout << "\x1b[94m[4]\x1b[0mнаф\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+		}
+		else {
+			return 0;
+
+		}
+		if (countofquestions == 3) {
+			system("cls");
+			cout << "Введите желаемый никнейм: "; cin >> nickname;
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №1! \n";
+			cout << "Сколько битов в одном байте? \n";
+			cout << "\x1b[94m[1]\x1b[0m8\n"; cout << "\x1b[94m[2]\x1b[0m4\n";
+			cout << "\x1b[94m[3]\x1b[0m16\n"; cout << "\x1b[94m[4]\x1b[0m6\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №2! \n";
+			cout << "Как зовут преподавателя?\n";
+			cout << "\x1b[94m[1]\x1b[0mCоколов Дмитрий Алексеевич\n"; cout << "\x1b[94m[2]\x1b[0mОрлов Алексей Дмитриевич\n";
+			cout << "\x1b[94m[3]\x1b[0mАлексеев Дмитрий Гитхабыч\n"; cout << "\x1b[94m[4]\x1b[0mСиплюсплюсович Гитхаб Анатольевич\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 2) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+			Sleep(1500);
+
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №3! \n";
+			cout << "Что означает буква I в аббревиатуре IT?\n";
+			cout << "\x1b[94m[1]\x1b[0mИсламбек\n"; cout << "\x1b[94m[2]\x1b[0mИндульгенция\n";
+			cout << "\x1b[94m[3]\x1b[0mИнформационные\n"; cout << "\x1b[94m[4]\x1b[0mИбрагим\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 3) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №4! \n";
+			cout << "Что означает буква T в аббревиатуре IT?\n";
+			cout << "\x1b[94m[1]\x1b[0mТехнологии\n"; cout << "\x1b[94m[2]\x1b[0mОкно\n";
+			cout << "\x1b[94m[3]\x1b[0mАрабские Эмираты\n"; cout << "\x1b[94m[4]\x1b[0mШишка\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №5! \n";
+			cout << "Как называется предмет на котором мы сидим?\n";
+			cout << "\x1b[94m[1]\x1b[0mСистемное программирование\n"; cout << "\x1b[94m[2]\x1b[0mТут неправильно\n";
+			cout << "\x1b[94m[3]\x1b[0mЭто неправильный вариант\n"; cout << "\x1b[94m[4]\x1b[0mИ это тоже не тот ответ, первый выбирай\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №6! \n";
+			cout << "К периферийным устройствам относится?\n";
+			cout << "\x1b[94m[1]\x1b[0mМышь\n"; cout << "\x1b[94m[2]\x1b[0mПчелка\n";
+			cout << "\x1b[94m[3]\x1b[0mДом\n"; cout << "\x1b[94m[4]\x1b[0mВигонарапапам\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №6! \n";
+			cout << "Название фирмы производителей процессоров\n";
+			cout << "\x1b[94m[1]\x1b[0mIntel\n"; cout << "\x1b[94m[2]\x1b[0mMeow\n";
+			cout << "\x1b[94m[3]\x1b[0mWyw\n"; cout << "\x1b[94m[4]\x1b[0mKiki\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №7! \n";
+			cout << "Для чего нужна клавиатура?\n";
+			cout << "\x1b[94m[1]\x1b[0mВводить данные\n"; cout << "\x1b[94m[2]\x1b[0mДвигать курсором\n";
+			cout << "\x1b[94m[3]\x1b[0mВидеть изображения\n"; cout << "\x1b[94m[4]\x1b[0mЛопата\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №8! \n";
+			cout << "Для чего нужен монитор?\n";
+			cout << "\x1b[94m[1]\x1b[0mБегать\n"; cout << "\x1b[94m[2]\x1b[0mПрыгать\n";
+			cout << "\x1b[94m[3]\x1b[0mВидеть изображения\n"; cout << "\x1b[94m[4]\x1b[0mКопать\n\n";
+			cout << "Введите число: "; cin >> choice;
+
+			if (choice == 3) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №9! \n";
+			cout << "В каком колледже мы учимся?\n";
+			cout << "\x1b[94m[1]\x1b[0m55\n"; cout << "\x1b[94m[2]\x1b[0m57\n";
+			cout << "\x1b[94m[3]\x1b[0m56\n"; cout << "\x1b[94m[4]\x1b[0m54\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 4) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №10! \n";
+			cout << "Какая фамилия у директора?\n";
+			cout << "\x1b[94m[1]\x1b[0mПавлюк\n"; cout << "\x1b[94m[2]\x1b[0mаррр\n";
+			cout << "\x1b[94m[3]\x1b[0mФЫВФЫВ\n"; cout << "\x1b[94m[4]\x1b[0mнаф\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №9! \n";
+			cout << "В каком колледже мы учимся?\n";
+			cout << "\x1b[94m[1]\x1b[0m55\n"; cout << "\x1b[94m[2]\x1b[0m57\n";
+			cout << "\x1b[94m[3]\x1b[0m56\n"; cout << "\x1b[94m[4]\x1b[0m54\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 4) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+
+			Sleep(1500);
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №10! \n";
+			cout << "Какая фамилия у директора?\n";
+			cout << "\x1b[94m[1]\x1b[0mПавлюк\n"; cout << "\x1b[94m[2]\x1b[0mаррр\n";
+			cout << "\x1b[94m[3]\x1b[0mФЫВФЫВ\n"; cout << "\x1b[94m[4]\x1b[0mнаф\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+			Sleep(1500);
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №11! \n";
+			cout << "Какое имя у директора?\n";
+			cout << "\x1b[94m[1]\x1b[0mИван\n"; cout << "\x1b[94m[2]\x1b[0рррр\n";
+			cout << "\x1b[94m[3]\x1b[0mФвввв\n"; cout << "\x1b[94m[4]\x1b[0mррррпп\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+			Sleep(1500);
+			system("cls");
+			cout << "\x1b[94m[+] Игрок: " << nickname << " | Жизни: " << attempts << "| Набранных очков: " << points << "\n\n\n";
+			cout << "Вопрос №12! \n";
+			cout << "Какое отчество у директора?\n";
+			cout << "\x1b[94m[1]\x1b[0mАндреевич\n"; cout << "\x1b[94m[2]\x1b[0ррррфыв\n";
+			cout << "\x1b[94m[3]\x1b[0mФвввппппв\n"; cout << "\x1b[94m[4]\x1b[0mррррыыпп\n\n";
+			cout << "Введите число: "; cin >> choice;
+			if (choice == 1) {
+				cout << "\x1b[92mОтвет верный!";
+				points++;
+			}
+			else {
+				cout << "\x1b[91mНеправильный ответ =(";
+				attempts--;
+			}
+		}
+
+		
+		
+		else {
+			if (attempts != 0) {
+				cout << "ура победа! пока";
+			}
+			else {
+				cout << "вы проиграли...";
+			}
+		}
+
+
+		return 0;
+
+
+
+	}
